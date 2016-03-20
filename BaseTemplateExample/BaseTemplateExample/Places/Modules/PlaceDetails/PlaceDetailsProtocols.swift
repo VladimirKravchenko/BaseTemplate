@@ -23,6 +23,7 @@ protocol PlaceDetailsPresenting: class {
 }
 
 protocol PlaceDetailsView: class {
+  func showPlace(place: Place)
 }
 
 protocol PlaceDetailsEventHandler: class {

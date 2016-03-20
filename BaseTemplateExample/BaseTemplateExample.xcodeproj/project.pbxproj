@@ -54,6 +54,7 @@
 		DE245E1FDE2EB8E609C81774 /* RootWireframe.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE245A5C9625A39BF5EEFBE6 /* RootWireframe.swift */; };
 		DE245E6C92AC2CFE77306CA2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DE2452D88FAB4EC76829B6C5 /* LaunchScreen.storyboard */; };
 		DF5DECA40BCB1D3FB284C442 /* PlacesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6D1A39DB84F564C55566B4C /* PlacesInteractor.swift */; };
+		E7092F0E1C9F2E2A0082A02B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E7092F0D1C9F2E2A0082A02B /* MapKit.framework */; };
 		E77079131C9E90A7007C4468 /* SF-UI-Display-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = E77078FE1C9E90A2007C4468 /* SF-UI-Display-Black.otf */; };
 		E77079141C9E90A7007C4468 /* SF-UI-Display-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = E77078FF1C9E90A2007C4468 /* SF-UI-Display-Bold.otf */; };
 		E77079151C9E90A7007C4468 /* SF-UI-Display-Heavy.otf in Resources */ = {isa = PBXBuildFile; fileRef = E77079001C9E90A2007C4468 /* SF-UI-Display-Heavy.otf */; };
@@ -131,6 +132,7 @@
 		DE245F9C463AF172524CD149 /* FavoritesConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesConstants.swift; sourceTree = "<group>"; };
 		DEB5AF6FEE05EEDB7425BE59 /* PlacesProtocols.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PlacesProtocols.swift; sourceTree = "<group>"; };
 		E6D1A39DB84F564C55566B4C /* PlacesInteractor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PlacesInteractor.swift; sourceTree = "<group>"; };
+		E7092F0D1C9F2E2A0082A02B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E77078E71C9E8BB5007C4468 /* BaseTemplateExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BaseTemplateExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E77078FE1C9E90A2007C4468 /* SF-UI-Display-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Black.otf"; sourceTree = "<group>"; };
 		E77078FF1C9E90A2007C4468 /* SF-UI-Display-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-UI-Display-Bold.otf"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7092F0E1C9F2E2A0082A02B /* MapKit.framework in Frameworks */,
 				E77079321C9EF936007C4468 /* CoreLocation.framework in Frameworks */,
 				57FFB50555785B074E55F9A1 /* Pods.framework in Frameworks */,
 			);
@@ -204,6 +207,7 @@
 		9B61CE60479683CAEA14156C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E7092F0D1C9F2E2A0082A02B /* MapKit.framework */,
 				E77079311C9EF936007C4468 /* CoreLocation.framework */,
 				EDCF71274DE94F6D46C5E688 /* Pods.framework */,
 			);
