@@ -51,7 +51,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="60" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="vSY-fp-rWu">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="70" sectionHeaderHeight="1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="vSY-fp-rWu">
                                 <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <inset key="separatorInset" minX="15" minY="0.0" maxX="15" maxY="0.0"/>
@@ -115,46 +115,64 @@
                                 </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="PlaceCell" id="LuB-Ou-jHr" customClass="PlaceCell" customModule="BaseTemplateExample" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="130" width="320" height="60"/>
+                                        <rect key="frame" x="0.0" y="130" width="320" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="LuB-Ou-jHr" id="tZU-1Z-ak9">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="poB-N7-QMl">
-                                                    <rect key="frame" x="15" y="8" width="290" height="43"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="poB-N7-QMl">
+                                                    <rect key="frame" x="15" y="4" width="290" height="62"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Place name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZoG-Yd-hR7">
-                                                            <rect key="frame" x="0.0" y="0.0" width="290" height="21"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="Place  name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="ZoG-Yd-hR7">
+                                                            <rect key="frame" x="0.0" y="0.0" width="290" height="41"/>
                                                             <fontDescription key="fontDescription" name="SFUIText-Medium" family="SF UI Text" pointSize="17"/>
                                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="top" translatesAutoresizingMaskIntoConstraints="NO" id="cyw-dd-kk2">
-                                                            <rect key="frame" x="0.0" y="24" width="290" height="19"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" verticalCompressionResistancePriority="1000" alignment="top" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="cyw-dd-kk2">
+                                                            <rect key="frame" x="0.0" y="44" width="290" height="18"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sumskaya str." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lx1-Kd-yX1">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="258" height="18"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="1000" text="Sumskaya str." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="12" translatesAutoresizingMaskIntoConstraints="NO" id="lx1-Kd-yX1">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="255" height="18"/>
                                                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="20m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iy1-9g-q4M">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" text="20m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Iy1-9g-q4M">
                                                                     <rect key="frame" x="258" y="0.0" width="32" height="18"/>
                                                                     <fontDescription key="fontDescription" name="SFUIText-Regular" family="SF UI Text" pointSize="15"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstAttribute="trailing" secondItem="Iy1-9g-q4M" secondAttribute="trailing" id="6qW-Wk-COH"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Iy1-9g-q4M" secondAttribute="bottom" id="7t7-yj-z3N"/>
+                                                                <constraint firstItem="lx1-Kd-yX1" firstAttribute="leading" secondItem="cyw-dd-kk2" secondAttribute="leading" id="WCr-R6-x2e"/>
+                                                                <constraint firstItem="Iy1-9g-q4M" firstAttribute="top" secondItem="cyw-dd-kk2" secondAttribute="top" id="bCt-hZ-gRn"/>
+                                                                <constraint firstItem="lx1-Kd-yX1" firstAttribute="top" secondItem="cyw-dd-kk2" secondAttribute="top" id="fFq-4l-wl4"/>
+                                                                <constraint firstAttribute="bottom" secondItem="lx1-Kd-yX1" secondAttribute="bottom" id="wAk-Kv-Zs4"/>
+                                                            </constraints>
                                                         </stackView>
                                                     </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="ZoG-Yd-hR7" firstAttribute="top" secondItem="poB-N7-QMl" secondAttribute="top" id="1VB-M9-VbE"/>
+                                                        <constraint firstItem="ZoG-Yd-hR7" firstAttribute="leading" secondItem="poB-N7-QMl" secondAttribute="leading" id="A17-kG-TR6"/>
+                                                        <constraint firstItem="cyw-dd-kk2" firstAttribute="leading" secondItem="poB-N7-QMl" secondAttribute="leading" id="KCb-UP-8eJ"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ZoG-Yd-hR7" secondAttribute="trailing" id="RrJ-tS-FuN"/>
+                                                        <constraint firstAttribute="trailing" secondItem="cyw-dd-kk2" secondAttribute="trailing" id="SC3-KN-4fh"/>
+                                                        <constraint firstItem="cyw-dd-kk2" firstAttribute="top" secondItem="ZoG-Yd-hR7" secondAttribute="bottom" constant="3" id="TXR-qX-qFE"/>
+                                                        <constraint firstAttribute="bottom" secondItem="cyw-dd-kk2" secondAttribute="bottom" id="sTF-wg-OcX"/>
+                                                    </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="poB-N7-QMl" firstAttribute="top" secondItem="tZU-1Z-ak9" secondAttribute="top" constant="8" id="5k0-ZV-wgi"/>
-                                                <constraint firstAttribute="bottom" secondItem="poB-N7-QMl" secondAttribute="bottom" constant="8" id="S9q-SR-TFP"/>
+                                                <constraint firstItem="poB-N7-QMl" firstAttribute="top" relation="greaterThanOrEqual" secondItem="tZU-1Z-ak9" secondAttribute="top" constant="3" id="5k0-ZV-wgi"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="poB-N7-QMl" secondAttribute="bottom" constant="3" id="S9q-SR-TFP"/>
                                                 <constraint firstItem="poB-N7-QMl" firstAttribute="leading" secondItem="tZU-1Z-ak9" secondAttribute="leading" constant="15" id="acA-Us-7r5"/>
                                                 <constraint firstAttribute="trailing" secondItem="poB-N7-QMl" secondAttribute="trailing" constant="15" id="f6Y-dZ-Qti"/>
+                                                <constraint firstItem="poB-N7-QMl" firstAttribute="centerY" secondItem="tZU-1Z-ak9" secondAttribute="centerY" id="z3X-Ac-tef"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

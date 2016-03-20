@@ -23,7 +23,7 @@ class TabBarController: UITabBarController {
     tabBar.translucent = false
     tabBar.itemPositioning = .Fill
     tabBar.tintColor = UIColor.tintColor()
-    tabBar.backgroundColor = UIColor.whiteColor()
+    tabBar.backgroundColor = UIColor.colorFromHex(0xf7f7f7)
     //no shadow
     tabBar.shadowImage = UIImage()
     tabBar.backgroundImage = UIImage()

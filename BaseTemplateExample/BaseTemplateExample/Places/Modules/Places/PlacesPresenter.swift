@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class PlacesPresenter: BasePresenter {
   typealias ViewType = PlacesView
@@ -23,11 +24,18 @@ extension PlacesPresenter: PlacesConfigurator {
 
 extension PlacesPresenter: PlacesPresenting {
 
-  func presentPlaces(places: [Place]?) {
+  func presentPlaces(places: [Place]?, forCategory category: Category?, searchString: String?) {
+    guard category == selectedCategory && searchString == self.searchString else {
+      return
+    }
     view.showPlaces(places)
   }
 
   func processPlacesFetchFail(withErrorMessage message: String?) {
+    view.hideLoadingIndicators()
+    if let message = message {
+      UIAlertController.showMessage(message)
+    }
   }
 
 }

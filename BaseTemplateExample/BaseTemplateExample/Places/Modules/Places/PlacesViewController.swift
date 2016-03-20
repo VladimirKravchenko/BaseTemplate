@@ -22,6 +22,7 @@ class PlacesViewController: UIViewController, BaseView {
     super.viewDidLoad()
     configureInterface()
     refreshControl.beginRefreshing()
+    refresh()
   }
 
   //MARK: Interface
@@ -43,9 +44,10 @@ class PlacesViewController: UIViewController, BaseView {
 
   private func configurePullToRefresh() {
     refreshControl.addTarget(self, action: "refresh", forControlEvents: .ValueChanged)
+    tableView.addSubview(refreshControl)
   }
 
-  private func refresh() {
+  func refresh() {
     eventHandler.handleRefreshEvent()
   }
 
@@ -73,6 +75,10 @@ extension PlacesViewController: PlacesView {
     self.places = places
     refreshControl.endRefreshing()
     tableView?.reloadData()
+  }
+
+  func hideLoadingIndicators() {
+    refreshControl.endRefreshing()
   }
 
 }
@@ -107,7 +113,7 @@ extension PlacesViewController: UITableViewDelegate {
   }
 
   func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    return UITableViewAutomaticDimension
+    return 70
   }
 
   func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -126,6 +132,9 @@ extension PlacesViewController: UITextFieldDelegate {
                  replacementString string: String) -> Bool {
     let resultString: NSString = (textField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
     cancelButton.hidden = resultString.length == 0
+    if resultString.length == 0 {
+      searchForString("")
+    }
     return true
   }
 

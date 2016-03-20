@@ -13,7 +13,7 @@ class PlacesFlowWireframe {
     let identifier = PlacesViewControllersIdentifiers.Places
     let viewController = storyboard().instantiateViewControllerWithIdentifier(identifier) as! PlacesViewController
     let presenter = PlacesPresenter()
-    let interactor = PlacesInteractor()
+    let interactor = PlacesInteractor(withPlacesService: PlacesService(), locationService: LocationService())
     let router = PlacesRouter(withWireframe: PlacesFlowWireframe(), navigationController: navigationController,
                               presentingViewController: presentingViewController)
     return try! moduleWithType(PlacesModule.self, presenter: presenter, view: viewController,

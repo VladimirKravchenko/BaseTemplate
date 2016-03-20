@@ -5,8 +5,13 @@
 
 import Foundation
 
-class Category {
+class Category: Equatable {
   var id: String?
   var name: String?
   var iconURLString: String?
+}
+
+//MARK: Equatable
+func ==(lhs: Category, rhs: Category) -> Bool {
+  return lhs.id == rhs.id
 }

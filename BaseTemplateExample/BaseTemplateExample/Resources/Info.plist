@@ -68,5 +68,12 @@
 		<string>SF-UI-Text-Semibold.otf</string>
 		<string>SF-UI-Text-SemiboldItalic.otf</string>
 	</array>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to find interesting places for you</string>
+	<key>NSAppTransportSecurity</key>
+	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
+	</dict>
 </dict>
 </plist>
