@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 class CategorySelectionPresenter: BasePresenter {
   typealias ViewType = CategorySelectionView
@@ -20,7 +21,28 @@ extension CategorySelectionPresenter: CategorySelectionConfigurator {
 }
 
 extension CategorySelectionPresenter: CategorySelectionPresenting {
+
+  func presentCategories(categories: [Category]?) {
+    view.showCategories(categories)
+  }
+
+  func processCategoriesFetchFail(withErrorMessage message: String?) {
+    view.hideLoadingIndicators()
+    if let message = message {
+      UIAlertController.showMessage(message)
+    }
+  }
+
 }
 
 extension CategorySelectionPresenter: CategorySelectionEventHandler {
+
+  func handleRefreshEvent() {
+    interactor.fetchCategories()
+  }
+
+  func handleCategorySelection(category: Category) {
+    delegate?.updateForSelectedCategory(category)
+  }
+
 }

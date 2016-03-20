@@ -13,18 +13,26 @@ protocol CategorySelectionConfigurator: class {
 }
 
 protocol CategorySelectionDelegate: class {
+  func updateForSelectedCategory(category: Category)
 }
 
 protocol CategorySelectionInteracting: class {
+  func fetchCategories()
 }
 
 protocol CategorySelectionPresenting: class {
+  func presentCategories(categories: [Category]?)
+  func processCategoriesFetchFail(withErrorMessage message: String?)
 }
 
 protocol CategorySelectionView: class {
+  func showCategories(categories: [Category]?)
+  func hideLoadingIndicators()
 }
 
 protocol CategorySelectionEventHandler: class {
+  func handleRefreshEvent()
+  func handleCategorySelection(category: Category)
 }
 
 protocol CategorySelectionRouting: class {

@@ -83,18 +83,17 @@ extension LocationService: LocationProvider {
     locationUpdateFailClosure = {
       [weak self] error in
       self?.locationUpdateFailClosure = nil
-      failure?(self?.messageForError(error) ?? "Unknown location service error")
+      failure?(self?.messageForError(error) ?? "Unknown location service error. Please refresh.")
     }
     locationManager.requestLocation()
   }
 
-  private func messageForError(error: NSError) -> String {
+  private func messageForError(error: NSError) -> String? {
     if error.domain == kCLErrorDomain && CLError(rawValue: error.code) == .Denied {
       return "Location service was denied. Please allow location access in settings"
     } else {
-      return "Unknown location service error"
+      return nil
     }
-
   }
 
 }

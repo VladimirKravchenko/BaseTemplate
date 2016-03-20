@@ -77,6 +77,15 @@ extension PlacesViewController: PlacesView {
     tableView?.reloadData()
   }
 
+  func showCategoryName(name: String?) {
+    let title = name ?? "All categories"
+    categoryButton.setTitle(title, forState: .Normal)
+  }
+
+  func showLoadingIndicators() {
+    refreshControl.beginRefreshing()
+  }
+
   func hideLoadingIndicators() {
     refreshControl.endRefreshing()
   }

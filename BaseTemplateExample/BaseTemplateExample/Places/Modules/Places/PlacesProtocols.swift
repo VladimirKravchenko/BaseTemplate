@@ -26,6 +26,8 @@ protocol PlacesPresenting: class {
 
 protocol PlacesView: class {
   func showPlaces(places: [Place]?)
+  func showCategoryName(name: String?)
+  func showLoadingIndicators()
   func hideLoadingIndicators()
 }
 

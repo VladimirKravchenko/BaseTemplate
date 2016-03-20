@@ -11,7 +11,6 @@ class PlacesService: ResponseHandling {
 }
 
 extension PlacesService: PlacesFetching {
-
   func getPlaces(nearLocation location: CLLocation, inRadius radius: Int, forCategory category: Category?,
                  withSearchString searchString: String?, success: PlacesClosure?, failure: FailureClosure?) {
     var params: [String: AnyObject] = [
@@ -36,5 +35,19 @@ extension PlacesService: PlacesFetching {
       }
     })
   }
+}
 
+extension PlacesService: PlaceCategoriesFetching {
+  func getCategories(success success: CategoriesClosure?, failure: FailureClosure?) {
+    NetworkManager.sharedManager.getAtPath("venues/categories", parameters: nil, success: {
+      response in
+      let categories = Mapper<Category>().mapArray(self.arrayFromResponse(response, withPath: "categories"))
+      success?(categories)
+    }, failure: {
+      response, error in
+      if let errorMessage = error?.localizedDescription {
+        failure?(errorMessage)
+      }
+    })
+  }
 }

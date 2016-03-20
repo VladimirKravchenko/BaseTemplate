@@ -32,7 +32,7 @@ extension PlacesFlowWireframe: PlacesWireframe {
     let identifier = PlacesViewControllersIdentifiers.CategorySelection
     let viewController = storyboard().instantiateViewControllerWithIdentifier(identifier) as! CategorySelectionViewController
     let presenter = CategorySelectionPresenter()
-    let interactor = CategorySelectionInteractor()
+    let interactor = CategorySelectionInteractor(withService: PlacesService())
     let router = CategorySelectionRouter(withWireframe: PlacesFlowWireframe())
     return try! moduleWithType(CategorySelectionModule.self, presenter: presenter, view: viewController,
                                interactor: interactor, router: router)

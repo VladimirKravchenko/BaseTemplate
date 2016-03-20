@@ -60,3 +60,15 @@ extension PlacesPresenter: PlacesEventHandler {
   }
 
 }
+
+extension PlacesPresenter: CategorySelectionDelegate {
+
+  func updateForSelectedCategory(category: Category) {
+    router.closeCategorySelection()
+    selectedCategory = category
+    view.showCategoryName(category.name)
+    view.showLoadingIndicators()
+    interactor.fetchPlaces(forCategory: selectedCategory, withSearchString: searchString)
+  }
+
+}
