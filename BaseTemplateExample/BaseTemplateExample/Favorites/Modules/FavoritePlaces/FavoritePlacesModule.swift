@@ -11,14 +11,6 @@ import UIKit
 
 class FavoritePlacesModule: BaseModule {
   let viewController: UIViewController
-  var delegate: FavoritePlacesDelegate? {
-    get {
-      return configurator.delegate
-    }
-    set (newDelegate) {
-      configurator.delegate = newDelegate
-    }
-  }
   private let configurator: FavoritePlacesConfigurator
 
   required init(withViewController viewController: UIViewController, configurator: FavoritePlacesConfigurator) {
@@ -29,4 +21,12 @@ class FavoritePlacesModule: BaseModule {
 
 //MARK: FavoritePlacesConfigurator protocol forwarding
 extension FavoritePlacesModule: FavoritePlacesConfigurator {
+  var delegate: FavoritePlacesDelegate? {
+    get {
+      return configurator.delegate
+    }
+    set (newDelegate) {
+      configurator.delegate = newDelegate
+    }
+  }
 }

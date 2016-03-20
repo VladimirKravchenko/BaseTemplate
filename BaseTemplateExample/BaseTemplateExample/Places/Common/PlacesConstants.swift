@@ -7,4 +7,6 @@ import Foundation
 
 struct PlacesViewControllersIdentifiers {
   static let Places = "PlacesViewController"
+  static let CategorySelection = "CategorySelectionViewController"
+  static let PlaceDetails = "PlaceDetailsViewController"
 }

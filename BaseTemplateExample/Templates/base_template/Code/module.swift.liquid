@@ -11,14 +11,6 @@ import UIKit
 
 class {{ module_info.name }}Module: BaseModule {
   let viewController: UIViewController
-  var delegate: {{ module_info.name }}Delegate? {
-    get {
-      return configurator.delegate
-    }
-    set (newDelegate) {
-      configurator.delegate = newDelegate
-    }
-  }
   private let configurator: {{ module_info.name }}Configurator
 
   required init(withViewController viewController: UIViewController, configurator: {{ module_info.name }}Configurator) {
@@ -29,4 +21,12 @@ class {{ module_info.name }}Module: BaseModule {
 
 //MARK: {{ module_info.name }}Configurator protocol forwarding
 extension {{ module_info.name }}Module: {{ module_info.name }}Configurator {
+  var delegate: {{ module_info.name }}Delegate? {
+    get {
+      return configurator.delegate
+    }
+    set (newDelegate) {
+      configurator.delegate = newDelegate
+    }
+  }
 }

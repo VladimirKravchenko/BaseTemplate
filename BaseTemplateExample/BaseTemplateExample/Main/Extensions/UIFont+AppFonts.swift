@@ -9,7 +9,7 @@ import UIKit
 extension UIFont {
 
   public class func mainFont() -> UIFont {
-    return mediumDisplayFont()
+    return regularTextFont()
   }
 
   public class func mediumTextFont(withSize size: Double = 15.0) -> UIFont {

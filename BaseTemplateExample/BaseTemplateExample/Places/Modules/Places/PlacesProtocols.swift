@@ -16,19 +16,33 @@ protocol PlacesDelegate: class {
 }
 
 protocol PlacesInteracting: class {
+  func fetchPlaces(forCategory category: Category?, withSearchString: String?)
 }
 
 protocol PlacesPresenting: class {
+  func presentPlaces(places: [Place]?)
+  func processPlacesFetchFail(withErrorMessage message: String?)
 }
 
 protocol PlacesView: class {
+  func showPlaces(places: [Place]?)
 }
 
 protocol PlacesEventHandler: class {
+  func handleSearchForString(string: String)
+  func handleRefreshEvent()
+  func handleCategorySelection()
+  func handlePlaceSelection(place: Place)
 }
 
 protocol PlacesRouting: class {
+  func openCategorySelection()
+  func closeCategorySelection()
+  func openDetailsForPlace(place: Place)
+  func closePlaceDetails()
 }
 
 protocol PlacesWireframe: class {
+  func categorySelectionModule() -> CategorySelectionModule
+  func placeDetailsModule() -> PlaceDetailsModule
 }

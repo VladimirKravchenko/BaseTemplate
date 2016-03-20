@@ -14,4 +14,8 @@ class PlacesInteractor: BaseInteractor {
 }
 
 extension PlacesInteractor: PlacesInteracting {
+
+  func fetchPlaces(forCategory category: Category?, withSearchString: String?) {
+  }
+
 }

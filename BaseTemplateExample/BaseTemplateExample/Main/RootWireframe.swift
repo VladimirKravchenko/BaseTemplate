@@ -7,15 +7,19 @@ import Foundation
 import UIKit
 
 class RootWireframe {
-  lazy var tabBarController: TabBarController = {
-    let placesModule = PlacesFlowWireframe().placesModule()
-    let placesViewController = UINavigationController(rootViewController: placesModule.viewController)
-    let favoritesModule = FavoritesFlowWireframe().favoritePlacesModule()
-    let favoritesViewController = UINavigationController(rootViewController: favoritesModule.viewController)
+  private lazy var tabBarController: TabBarController = {
     let tabBarController = TabBarController()
-    tabBarController.viewControllers = [placesViewController, favoritesViewController]
-    placesViewController.tabBarItem.title = "Places"
-    favoritesViewController.tabBarItem.title = "Favorites"
+    let placesNavigationController = UINavigationController()
+    let placesModule = PlacesFlowWireframe().placesModule(withNavigationController: placesNavigationController,
+                                                          presentingViewController: tabBarController)
+    placesNavigationController.viewControllers = [placesModule.viewController]
+
+    let favoritesNavigationController = UINavigationController()
+    let favoritesModule = FavoritesFlowWireframe().favoritePlacesModule()
+    favoritesNavigationController.viewControllers = [favoritesModule.viewController]
+    tabBarController.viewControllers = [placesNavigationController, favoritesNavigationController]
+    placesNavigationController.tabBarItem.title = "Places"
+    favoritesNavigationController.tabBarItem.title = "Favorites"
     return tabBarController
   }()
 

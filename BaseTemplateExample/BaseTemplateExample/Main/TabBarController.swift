@@ -30,9 +30,9 @@ class TabBarController: UITabBarController {
   }
 
   private func configureTabBarItems() {
-    let normalAttributes = [NSFontAttributeName: UIFont.mainFont(),
+    let normalAttributes = [NSFontAttributeName: UIFont.mediumDisplayFont(withSize: 17),
                             NSForegroundColorAttributeName: UIColor.placeholderTextColor()]
-    let selectedAttributes = [NSFontAttributeName: UIFont.mainFont(),
+    let selectedAttributes = [NSFontAttributeName: UIFont.mediumDisplayFont(withSize: 17),
                               NSForegroundColorAttributeName: UIColor.textColor()]
     UITabBarItem.appearance().setTitleTextAttributes(normalAttributes, forState: .Normal)
     UITabBarItem.appearance().setTitleTextAttributes(selectedAttributes, forState: .Selected)

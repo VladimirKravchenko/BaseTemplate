@@ -1,5 +1,5 @@
 //
-//  PlacesModule.swift
+//  CategorySelectionModule.swift
 //  BaseTemplateExample
 //
 //  Created by Vladimir Kravchenko on 20/03/2016.
@@ -9,19 +9,19 @@
 import Foundation
 import UIKit
 
-class PlacesModule: BaseModule {
+class CategorySelectionModule: BaseModule {
   let viewController: UIViewController
-  private let configurator: PlacesConfigurator
+  private let configurator: CategorySelectionConfigurator
 
-  required init(withViewController viewController: UIViewController, configurator: PlacesConfigurator) {
+  required init(withViewController viewController: UIViewController, configurator: CategorySelectionConfigurator) {
     self.viewController = viewController
     self.configurator = configurator
   }
 }
 
-//MARK: PlacesConfigurator protocol forwarding
-extension PlacesModule: PlacesConfigurator {
-  var delegate: PlacesDelegate? {
+//MARK: CategorySelectionConfigurator protocol forwarding
+extension CategorySelectionModule: CategorySelectionConfigurator {
+  var delegate: CategorySelectionDelegate? {
     get {
       return configurator.delegate
     }

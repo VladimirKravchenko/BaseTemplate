@@ -11,10 +11,10 @@ xcodeproj_path: BaseTemplateExample.xcodeproj
 project_target: BaseTemplateExample
 
 # The file path for new modules
-project_file_path: BaseTemplateExample/Favorites/Modules
+project_file_path: BaseTemplateExample/Places/Modules
 
 # The Xcode group path to new modules
-project_group_path: BaseTemplateExample/Favorites/Modules
+project_group_path: BaseTemplateExample/Places/Modules
 
 ### Dependencies settings section
 podfile_path: Podfile
