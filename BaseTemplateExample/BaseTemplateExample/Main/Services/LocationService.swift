@@ -75,6 +75,16 @@ extension LocationService: CLLocationManagerDelegate {
 
 extension LocationService: LocationProvider {
   func getLocation(success success: LocationSuccessClosure?, failure: LocationFailureClosure?) {
+    let tenMinutes: NSTimeInterval = 60 * 60 * 10
+    if let location = locationManager.location where location.timestamp.timeIntervalSinceNow > -tenMinutes {
+      success?(location)      
+      locationManager.requestLocation()
+    } else {
+      requestNewLocation(success: success, failure: failure)
+    }
+  }
+  
+  private func requestNewLocation(success success: LocationSuccessClosure?, failure: LocationFailureClosure?) {
     locationUpdateClosure = {
       [weak self] location in
       self?.locationUpdateClosure = nil

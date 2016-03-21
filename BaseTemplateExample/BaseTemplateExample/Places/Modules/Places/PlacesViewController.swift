@@ -84,6 +84,7 @@ extension PlacesViewController: PlacesView {
 
   func showLoadingIndicators() {
     refreshControl.beginRefreshing()
+    tableView.setContentOffset(CGPoint(x: 0, y: -self.refreshControl.frame.size.height), animated:true);
   }
 
   func hideLoadingIndicators() {
