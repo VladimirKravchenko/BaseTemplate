@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class FavoritePlacesRouter: BaseRouter {
+class FavoritePlacesRouter: BaseRouter {
   weak var delegate: AnyObject!
   weak var viewController: UIViewController!
   private let wireframe: FavoritePlacesWireframe

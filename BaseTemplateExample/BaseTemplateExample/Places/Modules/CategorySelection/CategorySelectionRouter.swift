@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class CategorySelectionRouter: BaseRouter {
+class CategorySelectionRouter: BaseRouter {
   weak var delegate: AnyObject!
   weak var viewController: UIViewController!
   private let wireframe: CategorySelectionWireframe

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class PlaceDetailsRouter: BaseRouter {
+class PlaceDetailsRouter: BaseRouter {
   weak var delegate: AnyObject!
   weak var viewController: UIViewController!
   private let wireframe: PlaceDetailsWireframe

@@ -9,9 +9,9 @@ import UIKit
 //MARK: Base protocols
 
 internal protocol BasePresenter: class {
-  typealias InteractorType
-  typealias RouterType
-  typealias ViewType
+  associatedtype InteractorType
+  associatedtype RouterType
+  associatedtype ViewType
 
   var interactor: InteractorType! {get set}
   var router: RouterType! {get set}
@@ -19,12 +19,12 @@ internal protocol BasePresenter: class {
 }
 
 internal protocol BaseView: class {
-  typealias EventHandlerType
+  associatedtype EventHandlerType
   var eventHandler: EventHandlerType! {get set}
 }
 
 internal protocol BaseInteractor: class {
-  typealias PresenterType
+  associatedtype PresenterType
   var presenter: PresenterType! {get set} //should be weak
 }
 
@@ -34,7 +34,7 @@ internal protocol BaseRouter: class {
 }
 
 internal protocol BaseModule: class {
-  typealias ConfiguratorType
+  associatedtype ConfiguratorType
   var viewController: UIViewController {get}
   init(withViewController viewController: UIViewController, configurator: ConfiguratorType)
 }

@@ -40,6 +40,7 @@ class PlaceDetailsViewController: UIViewController, BaseView {
   }
   
   private func configureInterfaceWithPlace(place: Place) {
+    title = place.name
     nameLabel.text = place.name
     countryLabel.text = place.country
     cityLabel.text = place.city
