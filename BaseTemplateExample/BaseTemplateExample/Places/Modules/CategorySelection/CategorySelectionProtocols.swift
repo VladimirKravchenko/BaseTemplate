@@ -17,15 +17,15 @@ protocol CategorySelectionDelegate: class {
 }
 
 protocol CategorySelectionInteracting: class {
-  func fetchCategories()
+  func requestCategories()
 }
 
 protocol CategorySelectionPresenting: class {
   func presentCategories(categories: [Category]?)
-  func processCategoriesFetchFail(withErrorMessage message: String?)
+  func processCategoriesRequestFail(withErrorMessage message: String?)
 }
 
-protocol CategorySelectionView: class {
+protocol CategorySelectionViewing: class {
   func showCategories(categories: [Category]?)
   func hideLoadingIndicators()
 }

@@ -10,7 +10,7 @@ import ObjectMapper
 class PlacesService: ResponseHandling {
 }
 
-extension PlacesService: PlacesFetching {
+extension PlacesService: PlacesProvider {
   func getPlaces(nearLocation location: CLLocation, inRadius radius: Int, forCategory category: Category?,
                  withSearchString searchString: String?, success: PlacesClosure?, failure: FailureClosure?) {
     var params: [String: AnyObject] = [
@@ -37,7 +37,7 @@ extension PlacesService: PlacesFetching {
   }
 }
 
-extension PlacesService: PlaceCategoriesFetching {
+extension PlacesService: PlaceCategoriesProvider {
   func getCategories(success success: CategoriesClosure?, failure: FailureClosure?) {
     NetworkManager.sharedManager.getAtPath("venues/categories", parameters: nil, success: {
       response in

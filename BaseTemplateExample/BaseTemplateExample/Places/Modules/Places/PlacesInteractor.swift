@@ -12,11 +12,11 @@ import CoreLocation
 class PlacesInteractor: BaseInteractor {
   typealias PresenterType = PlacesPresenting
   weak var presenter: PlacesPresenting!
-  private let placesService: PlacesFetching
+  private let placesService: PlacesProvider
   private let locationService: LocationProvider
   var radius: Int = 1500 //meters
 
-  init(withPlacesService placesService: PlacesFetching, locationService: LocationProvider) {
+  init(withPlacesService placesService: PlacesProvider, locationService: LocationProvider) {
     self.placesService = placesService
     self.locationService = locationService
   }
@@ -25,17 +25,17 @@ class PlacesInteractor: BaseInteractor {
 
 extension PlacesInteractor: PlacesInteracting {
 
-  func fetchPlaces(forCategory category: Category?, withSearchString searchString: String?) {
+  func requestPlaces(forCategory category: Category?, withSearchString searchString: String?) {
     locationService.getLocation(success: {
       [weak self] location in
-      self?.fetchPlaces(nearLocation: location, forCategory: category, withSearchString: searchString)
+      self?.requestPlaces(nearLocation: location, forCategory: category, withSearchString: searchString)
     }, failure: {
       [weak self] errorMessage in
-      self?.presenter.processPlacesFetchFail(withErrorMessage: errorMessage)
+      self?.presenter.processPlacesRequestFail(withErrorMessage: errorMessage)
     })
   }
 
-  private func fetchPlaces(nearLocation location: CLLocation, forCategory category: Category?,
+  private func requestPlaces(nearLocation location: CLLocation, forCategory category: Category?,
                            withSearchString searchString: String?) {
     placesService.getPlaces(nearLocation: location, inRadius: radius, forCategory: category,
                             withSearchString: searchString, success: {
@@ -43,14 +43,14 @@ extension PlacesInteractor: PlacesInteracting {
       self?.presenter.presentPlaces(places, forCategory: category, searchString: searchString)
     }, failure: {
       [weak self] errorMessage in
-      self?.presenter.processPlacesFetchFail(withErrorMessage: errorMessage)
+      self?.presenter.processPlacesRequestFail(withErrorMessage: errorMessage)
     })
   }
 
 }
 
 typealias PlacesClosure = [Place]? -> Void
-protocol PlacesFetching {
+protocol PlacesProvider {
   func getPlaces(nearLocation location: CLLocation, inRadius radius: Int, forCategory category: Category?,
                  withSearchString searchString: String?, success: PlacesClosure?, failure: FailureClosure?)
 }

@@ -9,9 +9,9 @@
 import Foundation
 
 class FavoritePlacesPresenter: BasePresenter {
-  typealias ViewType = FavoritePlacesView
+  typealias ViewType = FavoritePlacesViewing
   weak var delegate: FavoritePlacesDelegate?
-  weak var view: FavoritePlacesView!
+  weak var view: FavoritePlacesViewing!
   var interactor: FavoritePlacesInteracting!
   var router: FavoritePlacesRouting!
 }

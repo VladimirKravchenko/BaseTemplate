@@ -22,7 +22,7 @@ protocol PlaceDetailsInteracting: class {
 protocol PlaceDetailsPresenting: class {
 }
 
-protocol PlaceDetailsView: class {
+protocol PlaceDetailsViewing: class {
   func showPlace(place: Place)
 }
 

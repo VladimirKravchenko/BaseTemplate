@@ -2,10 +2,12 @@
 <module type="CIDR_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$">
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/Extensions/UIFont+AppFonts.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/Extensions/UIColor+AppColors.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/Extensions/UIAlertController+Showing.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/Extensions/UIViewController+TopViewController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/Extensions/UIColor+AppColors.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/Extensions/UIFont+AppFonts.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/Tools/ErrorHandler.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/Tools/NetworkManager.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/AppDelegate.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/Models/Category.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/Models/Place.swift" isTestSource="false" />
@@ -17,11 +19,7 @@
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/Services/LocationService.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/Constants.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/RootWireframe.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/Tools/ErrorHandler.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/Tools/NetworkManager.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Main/TabBarController.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Common/PlacesFlowWireframe.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Common/PlacesConstants.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/PlaceDetails/PlaceDetailsPresenter.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/PlaceDetails/PlaceDetailsRouter.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/PlaceDetails/PlaceDetailsProtocols.swift" isTestSource="false" />
@@ -35,32 +33,34 @@
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/Places/PlacesModule.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/Places/Cells/PlaceCell.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/Places/PlacesProtocols.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/CategorySelection/CategorySelectionModule.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/CategorySelection/CategorySelectionProtocols.swift" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/CategorySelection/CategorySelectionInteractor.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/CategorySelection/CategorySelectionRouter.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/CategorySelection/CategorySelectionProtocols.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/CategorySelection/CategorySelectionModule.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/CategorySelection/CategorySelectionInteractor.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/CategorySelection/CategorySelectionViewController.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/CategorySelection/Cells/CategoryCell.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Modules/CategorySelection/CategorySelectionPresenter.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Common/PlacesConstants.swift" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Common/PlacesFlowWireframe.swift" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Places/Places.storyboard" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Images/Assets.xcassets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Info.plist" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Images/Assets.xcassets" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Text-HeavyItalic.otf" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Display-Regular.otf" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Display-Light.otf" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Display-Medium.otf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Text-LightItalic.otf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Text-Regular.otf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Text-Heavy.otf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Text-Medium.otf" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Text-LightItalic.otf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Display-Light.otf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Text-RegularItalic.otf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Text-Semibold.otf" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Text-Regular.otf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Display-Heavy.otf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Display-Ultralight.otf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Text-Bold.otf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Text-BoldItalic.otf" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Text-MediumItalic.otf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Display-Regular.otf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Text-SemiboldItalic.otf" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Display-Heavy.otf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Display-Medium.otf" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Text-MediumItalic.otf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Text-Light.otf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Display-Black.otf" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/BaseTemplateExample/Resources/Fonts/SF-UI-Display-Bold.otf" isTestSource="false" />

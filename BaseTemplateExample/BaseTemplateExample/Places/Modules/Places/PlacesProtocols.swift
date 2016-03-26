@@ -16,15 +16,15 @@ protocol PlacesDelegate: class {
 }
 
 protocol PlacesInteracting: class {
-  func fetchPlaces(forCategory category: Category?, withSearchString searchString: String?)
+  func requestPlaces(forCategory category: Category?, withSearchString searchString: String?)
 }
 
 protocol PlacesPresenting: class {
   func presentPlaces(places: [Place]?, forCategory category: Category?, searchString: String?)
-  func processPlacesFetchFail(withErrorMessage message: String?)
+  func processPlacesRequestFail(withErrorMessage message: String?)
 }
 
-protocol PlacesView: class {
+protocol PlacesViewing: class {
   func showPlaces(places: [Place]?)
   func showCategoryName(name: String?)
   func showLoadingIndicators()

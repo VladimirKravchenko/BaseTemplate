@@ -21,7 +21,7 @@ protocol FavoritePlacesInteracting: class {
 protocol FavoritePlacesPresenting: class {
 }
 
-protocol FavoritePlacesView: class {
+protocol FavoritePlacesViewing: class {
 }
 
 protocol FavoritePlacesEventHandler: class {

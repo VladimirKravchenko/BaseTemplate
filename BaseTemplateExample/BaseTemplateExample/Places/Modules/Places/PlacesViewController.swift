@@ -69,7 +69,7 @@ class PlacesViewController: UIViewController, BaseView {
   
 }
 
-extension PlacesViewController: PlacesView {
+extension PlacesViewController: PlacesViewing {
 
   func showPlaces(places: [Place]?) {
     self.places = places

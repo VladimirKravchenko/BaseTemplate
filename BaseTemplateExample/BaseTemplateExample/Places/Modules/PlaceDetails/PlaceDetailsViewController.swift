@@ -62,7 +62,7 @@ class PlaceDetailsViewController: UIViewController, BaseView {
 
 }
 
-extension PlaceDetailsViewController: PlaceDetailsView {
+extension PlaceDetailsViewController: PlaceDetailsViewing {
 
   func showPlace(place: Place) {
     self.place = place

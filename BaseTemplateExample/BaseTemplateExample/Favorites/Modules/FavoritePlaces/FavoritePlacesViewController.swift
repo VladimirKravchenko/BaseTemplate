@@ -18,5 +18,5 @@ class FavoritePlacesViewController: UIViewController, BaseView {
   
 }
 
-extension FavoritePlacesViewController: FavoritePlacesView {
+extension FavoritePlacesViewController: FavoritePlacesViewing {
 }

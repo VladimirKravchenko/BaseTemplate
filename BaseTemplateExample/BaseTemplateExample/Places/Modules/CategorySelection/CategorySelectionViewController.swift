@@ -50,7 +50,7 @@ class CategorySelectionViewController: UIViewController, BaseView {
   
 }
 
-extension CategorySelectionViewController: CategorySelectionView {
+extension CategorySelectionViewController: CategorySelectionViewing {
 
   func showCategories(categories: [Category]?) {
     refreshControl.endRefreshing()

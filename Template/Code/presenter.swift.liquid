@@ -9,9 +9,9 @@
 import Foundation
 
 class {{ module_info.name }}Presenter: BasePresenter {
-  typealias ViewType = {{ module_info.name }}View
+  typealias ViewType = {{ module_info.name }}Viewing
   weak var delegate: {{ module_info.name }}Delegate?
-  weak var view: {{ module_info.name }}View!
+  weak var view: {{ module_info.name }}Viewing!
   var interactor: {{ module_info.name }}Interacting!
   var router: {{ module_info.name }}Routing!
 }

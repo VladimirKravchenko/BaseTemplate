@@ -10,9 +10,9 @@ import Foundation
 import UIKit
 
 class PlacesPresenter: BasePresenter {
-  typealias ViewType = PlacesView
+  typealias ViewType = PlacesViewing
   weak var delegate: PlacesDelegate?
-  weak var view: PlacesView!
+  weak var view: PlacesViewing!
   var interactor: PlacesInteracting!
   var router: PlacesRouting!
   var searchString: String?
@@ -31,7 +31,7 @@ extension PlacesPresenter: PlacesPresenting {
     view.showPlaces(places)
   }
 
-  func processPlacesFetchFail(withErrorMessage message: String?) {
+  func processPlacesRequestFail(withErrorMessage message: String?) {
     view.hideLoadingIndicators()
     if let message = message {
       UIAlertController.showMessage(message)
@@ -44,11 +44,11 @@ extension PlacesPresenter: PlacesEventHandler {
 
   func handleSearchForString(string: String) {
     searchString = string
-    interactor.fetchPlaces(forCategory: selectedCategory, withSearchString: searchString)
+    interactor.requestPlaces(forCategory: selectedCategory, withSearchString: searchString)
   }
 
   func handleRefreshEvent() {
-    interactor.fetchPlaces(forCategory: selectedCategory, withSearchString: searchString)
+    interactor.requestPlaces(forCategory: selectedCategory, withSearchString: searchString)
   }
 
   func handleCategorySelection() {
@@ -68,7 +68,7 @@ extension PlacesPresenter: CategorySelectionDelegate {
     selectedCategory = category
     view.showCategoryName(category.name)
     view.showLoadingIndicators()
-    interactor.fetchPlaces(forCategory: selectedCategory, withSearchString: searchString)
+    interactor.requestPlaces(forCategory: selectedCategory, withSearchString: searchString)
   }
 
 }

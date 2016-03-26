@@ -9,9 +9,9 @@
 import Foundation
 
 class PlaceDetailsPresenter: BasePresenter {
-  typealias ViewType = PlaceDetailsView
+  typealias ViewType = PlaceDetailsViewing
   weak var delegate: PlaceDetailsDelegate?
-  weak var view: PlaceDetailsView!
+  weak var view: PlaceDetailsViewing!
   var interactor: PlaceDetailsInteracting!
   var router: PlaceDetailsRouting!
 }
