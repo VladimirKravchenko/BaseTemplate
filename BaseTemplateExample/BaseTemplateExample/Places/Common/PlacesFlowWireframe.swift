@@ -11,7 +11,7 @@ class PlacesFlowWireframe {
   func placesModule(withNavigationController navigationController: UINavigationController,
                     presentingViewController: UIViewController) -> PlacesModule {
     let identifier = PlacesViewControllersIdentifiers.Places
-    let viewController = storyboard().instantiateViewControllerWithIdentifier(identifier) as! PlacesViewController
+    let viewController = storyboard().instantiateViewController(withIdentifier: identifier) as! PlacesViewController
     let presenter = PlacesPresenter()
     let interactor = PlacesInteractor(withPlacesService: PlacesService(), locationService: LocationService())
     let router = PlacesRouter(withWireframe: PlacesFlowWireframe(), navigationController: navigationController,
@@ -20,7 +20,7 @@ class PlacesFlowWireframe {
                                interactor: interactor, router: router)
   }
 
-  private func storyboard() -> UIStoryboard {
+  fileprivate func storyboard() -> UIStoryboard {
     return UIStoryboard(name: "Places", bundle: nil)
   }
 
@@ -30,7 +30,7 @@ extension PlacesFlowWireframe: PlacesWireframe {
 
   func categorySelectionModule() -> CategorySelectionModule {
     let identifier = PlacesViewControllersIdentifiers.CategorySelection
-    let viewController = storyboard().instantiateViewControllerWithIdentifier(identifier) as! CategorySelectionViewController
+    let viewController = storyboard().instantiateViewController(withIdentifier: identifier) as! CategorySelectionViewController
     let presenter = CategorySelectionPresenter()
     let interactor = CategorySelectionInteractor(withService: PlacesService())
     let router = CategorySelectionRouter(withWireframe: PlacesFlowWireframe())
@@ -40,7 +40,7 @@ extension PlacesFlowWireframe: PlacesWireframe {
 
   func placeDetailsModule() -> PlaceDetailsModule {
     let identifier = PlacesViewControllersIdentifiers.PlaceDetails
-    let viewController = storyboard().instantiateViewControllerWithIdentifier(identifier) as! PlaceDetailsViewController
+    let viewController = storyboard().instantiateViewController(withIdentifier: identifier) as! PlaceDetailsViewController
     let presenter = PlaceDetailsPresenter()
     let interactor = PlaceDetailsInteractor()
     let router = PlaceDetailsRouter(withWireframe: PlacesFlowWireframe())

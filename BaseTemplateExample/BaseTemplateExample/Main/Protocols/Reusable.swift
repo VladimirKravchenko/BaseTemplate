@@ -14,11 +14,11 @@ protocol Reusable: class {
 extension Reusable {
 
   static func id() -> String {
-    return String(self)
+    return String(describing: self)
   }
 
   static func nib() -> UINib? {
-    return UINib(nibName: String(self), bundle: nil)
+    return UINib(nibName: String(describing: self), bundle: nil)
   }
 
 }

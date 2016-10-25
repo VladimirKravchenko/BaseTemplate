@@ -14,19 +14,19 @@ extension PlacesService: PlacesProvider {
   func getPlaces(nearLocation location: CLLocation, inRadius radius: Int, forCategory category: Category?,
                  withSearchString searchString: String?, success: PlacesClosure?, failure: FailureClosure?) {
     var params: [String: AnyObject] = [
-        "ll": "\(location.coordinate.latitude),\(location.coordinate.longitude)",
-        "intent": "browse",
-        "radius": radius,
+        "ll": "\(location.coordinate.latitude),\(location.coordinate.longitude)" as AnyObject,
+        "intent": "browse" as AnyObject,
+        "radius": radius as AnyObject,
     ]
     if let categoryId = category?.id {
-      params["categoryId"] = categoryId
+      params["categoryId"] = categoryId as AnyObject?
     }
     if let searchString = searchString {
-      params["query"] = searchString
+      params["query"] = searchString as AnyObject?
     }
-    NetworkManager.sharedManager.getAtPath("venues/search", parameters: params, success: {
+    _ = NetworkManager.sharedManager.getAtPath("venues/search", parameters: params, success: {
       response in
-      let places = Mapper<Place>().mapArray(self.arrayFromResponse(response, withPath: "venues"))
+      let places = Mapper<Place>().mapArray(JSONObject: self.arrayFromResponse(response, withPath: "venues"))
       success?(places)
     }, failure: {
       response, error in
@@ -38,10 +38,10 @@ extension PlacesService: PlacesProvider {
 }
 
 extension PlacesService: PlaceCategoriesProvider {
-  func getCategories(success success: CategoriesClosure?, failure: FailureClosure?) {
-    NetworkManager.sharedManager.getAtPath("venues/categories", parameters: nil, success: {
+  func getCategories(success: CategoriesClosure?, failure: FailureClosure?) {
+    _ = NetworkManager.sharedManager.getAtPath("venues/categories", parameters: nil, success: {
       response in
-      let categories = Mapper<Category>().mapArray(self.arrayFromResponse(response, withPath: "categories"))
+      let categories = Mapper<Category>().mapArray(JSONObject: self.arrayFromResponse(response, withPath: "categories"))
       success?(categories)
     }, failure: {
       response, error in

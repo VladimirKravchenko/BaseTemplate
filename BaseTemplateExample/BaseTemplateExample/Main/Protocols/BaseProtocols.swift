@@ -43,28 +43,28 @@ internal protocol BaseModule: class {
 
 internal func moduleWithType<Module: BaseModule, Presenter: BasePresenter, View: BaseView,
   Interactor: BaseInteractor, Router: BaseRouter>
-  (ModuleType: Module.Type, presenter: Presenter, view: View,
+  (_ ModuleType: Module.Type, presenter: Presenter, view: View,
   interactor: Interactor, router: Router) throws -> Module {
     guard let configurator = presenter as? Module.ConfiguratorType else {
-      throw ModuleCreationError.PresenterNotConformConfiguratorProtocol
+      throw ModuleCreationError.presenterNotConformConfiguratorProtocol
     }
     guard presenter is View.EventHandlerType else {
-      throw ModuleCreationError.PresenterNotConformEventHandlerProtocol
+      throw ModuleCreationError.presenterNotConformEventHandlerProtocol
     }
     guard presenter is Interactor.PresenterType else {
-      throw ModuleCreationError.PresenterNotConformPresentingProtocol
+      throw ModuleCreationError.presenterNotConformPresentingProtocol
     }
     guard let viewController = view as? UIViewController else {
-      throw ModuleCreationError.ViewIsNotViewController
+      throw ModuleCreationError.viewIsNotViewController
     }
     guard view is Presenter.ViewType else {
-      throw ModuleCreationError.ViewNotConformViewProtocol
+      throw ModuleCreationError.viewNotConformViewProtocol
     }
     guard interactor is Presenter.InteractorType else {
-      throw ModuleCreationError.InteractorNotConformInteractingProtocol
+      throw ModuleCreationError.interactorNotConformInteractingProtocol
     }
     guard router is Presenter.RouterType else {
-      throw ModuleCreationError.RouterNotConformRoutingProtocol
+      throw ModuleCreationError.routerNotConformRoutingProtocol
     }
     view.eventHandler = presenter as? View.EventHandlerType
     presenter.view = view as? Presenter.ViewType
@@ -76,12 +76,12 @@ internal func moduleWithType<Module: BaseModule, Presenter: BasePresenter, View:
     return ModuleType.init(withViewController: viewController, configurator: configurator)
 }
 
-internal enum ModuleCreationError: ErrorType {
-  case PresenterNotConformConfiguratorProtocol
-  case PresenterNotConformEventHandlerProtocol
-  case PresenterNotConformPresentingProtocol
-  case ViewIsNotViewController
-  case ViewNotConformViewProtocol
-  case InteractorNotConformInteractingProtocol
-  case RouterNotConformRoutingProtocol
+internal enum ModuleCreationError: Error {
+  case presenterNotConformConfiguratorProtocol
+  case presenterNotConformEventHandlerProtocol
+  case presenterNotConformPresentingProtocol
+  case viewIsNotViewController
+  case viewNotConformViewProtocol
+  case interactorNotConformInteractingProtocol
+  case routerNotConformRoutingProtocol
 }

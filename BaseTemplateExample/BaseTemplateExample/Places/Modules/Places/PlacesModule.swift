@@ -11,7 +11,7 @@ import UIKit
 
 class PlacesModule: BaseModule {
   let viewController: UIViewController
-  private let configurator: PlacesConfigurator
+  fileprivate let configurator: PlacesConfigurator
 
   required init(withViewController viewController: UIViewController, configurator: PlacesConfigurator) {
     self.viewController = viewController

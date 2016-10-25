@@ -11,7 +11,7 @@ class Category: Equatable {
   var name: String?
   var iconURLString: String?
 
-  required init?(_ map: Map) {}
+  required init?(map: Map) {}
 }
 
 extension Category: Mappable {
@@ -36,14 +36,14 @@ private class IconURLTransform: TransformType {
   init() {
   }
 
-  func transformFromJSON(value: AnyObject?) -> String? {
+  func transformFromJSON(_ value: Any?) -> String? {
     if let value = value as? JSON, let prefix = value["prefix"], let suffix = value["suffix"] {
       return prefix + suffix
     }
     return nil
   }
 
-  func transformToJSON(value: String?) -> [String: String]? {
+  func transformToJSON(_ value: String?) -> [String: String]? {
     return nil
   }
 }

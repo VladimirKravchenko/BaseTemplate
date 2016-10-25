@@ -11,7 +11,7 @@ import Foundation
 class CategorySelectionInteractor: BaseInteractor {
   typealias PresenterType = CategorySelectionPresenting
   weak var presenter: CategorySelectionPresenting!
-  private let service: PlaceCategoriesProvider
+  fileprivate let service: PlaceCategoriesProvider
 
   init(withService service: PlaceCategoriesProvider) {
     self.service = service
@@ -31,7 +31,7 @@ extension CategorySelectionInteractor: CategorySelectionInteracting {
   }
 }
 
-typealias CategoriesClosure = [Category]? -> Void
+typealias CategoriesClosure = ([Category]?) -> Void
 protocol PlaceCategoriesProvider {
-  func getCategories(success success: CategoriesClosure?, failure: FailureClosure?)
+  func getCategories(success: CategoriesClosure?, failure: FailureClosure?)
 }

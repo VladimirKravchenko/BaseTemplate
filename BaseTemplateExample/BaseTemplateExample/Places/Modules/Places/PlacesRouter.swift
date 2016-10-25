@@ -11,9 +11,9 @@ import UIKit
 class PlacesRouter: BaseRouter {
   weak var delegate: AnyObject!
   weak var viewController: UIViewController!
-  private let wireframe: PlacesWireframe
-  private let navigationController: UINavigationController
-  private let presentingViewController: UIViewController
+  fileprivate let wireframe: PlacesWireframe
+  fileprivate let navigationController: UINavigationController
+  fileprivate let presentingViewController: UIViewController
   var navigationControllerDelegate: UINavigationControllerDelegate?
   var transitioningDelegate: UIViewControllerTransitioningDelegate?
 
@@ -31,16 +31,16 @@ extension PlacesRouter: PlacesRouting {
     let module = wireframe.categorySelectionModule()
     module.delegate = delegate as? CategorySelectionDelegate
     let viewController = module.viewController
-    viewController.modalPresentationStyle = .Custom
+    viewController.modalPresentationStyle = .custom
     viewController.transitioningDelegate = transitioningDelegate
-    presentingViewController.presentViewController(viewController, animated: true, completion: nil)
+    presentingViewController.present(viewController, animated: true, completion: nil)
   }
 
   func closeCategorySelection() {
-    presentingViewController.presentedViewController?.dismissViewControllerAnimated(true, completion: nil)
+    presentingViewController.presentedViewController?.dismiss(animated: true, completion: nil)
   }
 
-  func openDetailsForPlace(place: Place) {
+  func openDetailsForPlace(_ place: Place) {
     let module = wireframe.placeDetailsModule()
     module.configureWithPlace(place)
     module.delegate = delegate as? PlaceDetailsDelegate
@@ -49,7 +49,7 @@ extension PlacesRouter: PlacesRouting {
   }
 
   func closePlaceDetails() {
-    viewController.navigationController?.popToViewController(viewController, animated: true)
+    _ = viewController.navigationController?.popToViewController(viewController, animated: true)
   }
 
 }

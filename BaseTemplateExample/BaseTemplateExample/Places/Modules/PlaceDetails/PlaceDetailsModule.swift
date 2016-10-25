@@ -11,7 +11,7 @@ import UIKit
 
 class PlaceDetailsModule: BaseModule {
   let viewController: UIViewController
-  private let configurator: PlaceDetailsConfigurator
+  fileprivate let configurator: PlaceDetailsConfigurator
 
   required init(withViewController viewController: UIViewController, configurator: PlaceDetailsConfigurator) {
     self.viewController = viewController
@@ -30,7 +30,7 @@ extension PlaceDetailsModule: PlaceDetailsConfigurator {
     }
   }
 
-  func configureWithPlace(place: Place) {
+  func configureWithPlace(_ place: Place) {
     configurator.configureWithPlace(place)
   }
 

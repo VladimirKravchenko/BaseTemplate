@@ -24,7 +24,7 @@ extension PlacesPresenter: PlacesConfigurator {
 
 extension PlacesPresenter: PlacesPresenting {
 
-  func presentPlaces(places: [Place]?, forCategory category: Category?, searchString: String?) {
+  func presentPlaces(_ places: [Place]?, forCategory category: Category?, searchString: String?) {
     guard category == selectedCategory && searchString == self.searchString else {
       return
     }
@@ -42,7 +42,7 @@ extension PlacesPresenter: PlacesPresenting {
 
 extension PlacesPresenter: PlacesEventHandler {
 
-  func handleSearchForString(string: String) {
+  func handleSearchForString(_ string: String) {
     searchString = string
     interactor.requestPlaces(forCategory: selectedCategory, withSearchString: searchString)
   }
@@ -55,7 +55,7 @@ extension PlacesPresenter: PlacesEventHandler {
     router.openCategorySelection()
   }
 
-  func handlePlaceSelection(place: Place) {
+  func handlePlaceSelection(_ place: Place) {
     router.openDetailsForPlace(place)
   }
 
@@ -63,7 +63,7 @@ extension PlacesPresenter: PlacesEventHandler {
 
 extension PlacesPresenter: CategorySelectionDelegate {
 
-  func updateForSelectedCategory(category: Category) {
+  func updateForSelectedCategory(_ category: Category) {
     router.closeCategorySelection()
     selectedCategory = category
     view.showCategoryName(category.name)

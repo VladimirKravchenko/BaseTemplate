@@ -10,7 +10,7 @@ import Foundation
 
 protocol PlaceDetailsConfigurator: class {
   weak var delegate: PlaceDetailsDelegate? {get set}
-  func configureWithPlace(place: Place)
+  func configureWithPlace(_ place: Place)
 }
 
 protocol PlaceDetailsDelegate: class {
@@ -23,7 +23,7 @@ protocol PlaceDetailsPresenting: class {
 }
 
 protocol PlaceDetailsViewing: class {
-  func showPlace(place: Place)
+  func showPlace(_ place: Place)
 }
 
 protocol PlaceDetailsEventHandler: class {

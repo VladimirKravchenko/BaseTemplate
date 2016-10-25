@@ -35,7 +35,7 @@ class CategorySelectionViewController: UIViewController, BaseView {
   }
 
   private func configurePullToRefresh() {
-    refreshControl.addTarget(self, action: "refresh", forControlEvents: .ValueChanged)
+    refreshControl.addTarget(self, action: #selector(CategorySelectionViewController.refresh), for: .valueChanged)
     tableView.addSubview(refreshControl)
   }
 
@@ -44,15 +44,15 @@ class CategorySelectionViewController: UIViewController, BaseView {
   }
   
   //MARK: IBAction
-  @IBAction func closeButtonPressed(sender: AnyObject) {
-    self.dismissViewControllerAnimated(true, completion: nil)
+  @IBAction func closeButtonPressed(_ sender: AnyObject) {
+    self.dismiss(animated: true, completion: nil)
   }
   
 }
 
 extension CategorySelectionViewController: CategorySelectionViewing {
 
-  func showCategories(categories: [Category]?) {
+  func showCategories(_ categories: [Category]?) {
     refreshControl.endRefreshing()
     self.categories = categories
     tableView?.reloadData()
@@ -66,20 +66,20 @@ extension CategorySelectionViewController: CategorySelectionViewing {
 
 extension CategorySelectionViewController: UITableViewDataSource {
   
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return categories?.count ?? 0
   }
 
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier(CategoryCell.id(), forIndexPath: indexPath) as! CategoryCell
-    let category = categories![indexPath.row]
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: CategoryCell.id(), for: indexPath) as! CategoryCell
+    let category = categories![(indexPath as NSIndexPath).row]
     cell.nameLabel.text = category.name
-    if let iconURLString = category.iconURLString, let url = NSURL(string: iconURLString) {
-      cell.photoView.kf_setImageWithURL(url)
-      cell.photoView.hidden = false
+    if let iconURLString = category.iconURLString, let url = URL(string: iconURLString) {
+      cell.photoView.kf.setImage(with: url)
+      cell.photoView.isHidden = false
     } else {
       cell.photoView.image = nil
-      cell.photoView.hidden = true
+      cell.photoView.isHidden = true
     }
     return cell
   }
@@ -88,21 +88,21 @@ extension CategorySelectionViewController: UITableViewDataSource {
 
 extension CategorySelectionViewController: UITableViewDelegate {
 
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    let category = categories![indexPath.row]
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let category = categories![(indexPath as NSIndexPath).row]
     eventHandler.handleCategorySelection(category)
   }
 
-  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 60
   }
 
-  func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return CGFloat.min
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return CGFloat.leastNormalMagnitude
   }
 
-  func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-    return CGFloat.min
+  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return CGFloat.leastNormalMagnitude
   }
 
 }

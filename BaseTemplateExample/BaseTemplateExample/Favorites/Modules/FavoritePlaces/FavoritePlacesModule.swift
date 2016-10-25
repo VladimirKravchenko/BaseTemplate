@@ -11,7 +11,7 @@ import UIKit
 
 class FavoritePlacesModule: BaseModule {
   let viewController: UIViewController
-  private let configurator: FavoritePlacesConfigurator
+  fileprivate let configurator: FavoritePlacesConfigurator
 
   required init(withViewController viewController: UIViewController, configurator: FavoritePlacesConfigurator) {
     self.viewController = viewController

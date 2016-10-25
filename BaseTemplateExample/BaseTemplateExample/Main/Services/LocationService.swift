@@ -6,15 +6,15 @@
 import Foundation
 import CoreLocation
 
-typealias LocationUpdateClosure = CLLocation -> Void
-typealias LocationUpdateFailClosure = NSError -> Void
-typealias LocationStatusChangeClosure = CLAuthorizationStatus -> Void
+typealias LocationUpdateClosure = (CLLocation) -> Void
+typealias LocationUpdateFailClosure = (NSError) -> Void
+typealias LocationStatusChangeClosure = (CLAuthorizationStatus) -> Void
 
 class LocationService: NSObject {
-  private var locationUpdateClosure: LocationUpdateClosure?
-  private var locationUpdateFailClosure: LocationUpdateFailClosure?
-  private var locationStatusChangeClosure: LocationStatusChangeClosure?
-  private lazy var locationManager: CLLocationManager = {
+  fileprivate var locationUpdateClosure: LocationUpdateClosure?
+  fileprivate var locationUpdateFailClosure: LocationUpdateFailClosure?
+  fileprivate var locationStatusChangeClosure: LocationStatusChangeClosure?
+  fileprivate lazy var locationManager: CLLocationManager = {
     let manager = CLLocationManager()
     manager.delegate = self
     manager.requestWhenInUseAuthorization()
@@ -54,29 +54,29 @@ extension LocationService: LocationManaging {
 
 extension LocationService: CLLocationManagerDelegate {
 
-  func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+  func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
     if let location = locations.last {
       print("Location was changed: \(location.coordinate.latitude):\(location.coordinate.longitude)")
       locationUpdateClosure?(location)
     }
   }
 
-  func locationManager(manager: CLLocationManager, didChangeAuthorizationStatus status: CLAuthorizationStatus) {
+  func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
     print("Location service authorization status was changed: \(status)")
     locationStatusChangeClosure?(status)
   }
 
-  func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+  func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     print("Location manager did fail with error: \(error)")
-    locationUpdateFailClosure?(error)
+    locationUpdateFailClosure?(error as NSError)
   }
 
 }
 
 extension LocationService: LocationProvider {
-  func getLocation(success success: LocationSuccessClosure?, failure: LocationFailureClosure?) {
-    let tenMinutes: NSTimeInterval = 60 * 10
-    if let location = locationManager.location where location.timestamp.timeIntervalSinceNow > -tenMinutes {
+  func getLocation(success: LocationSuccessClosure?, failure: LocationFailureClosure?) {
+    let tenMinutes: TimeInterval = 60 * 10
+    if let location = locationManager.location , location.timestamp.timeIntervalSinceNow > -tenMinutes {
       success?(location)      
       locationManager.requestLocation()
     } else {
@@ -84,7 +84,7 @@ extension LocationService: LocationProvider {
     }
   }
   
-  private func requestNewLocation(success success: LocationSuccessClosure?, failure: LocationFailureClosure?) {
+  fileprivate func requestNewLocation(success: LocationSuccessClosure?, failure: LocationFailureClosure?) {
     locationUpdateClosure = {
       [weak self] location in
       self?.locationUpdateClosure = nil
@@ -98,8 +98,8 @@ extension LocationService: LocationProvider {
     locationManager.requestLocation()
   }
 
-  private func messageForError(error: NSError) -> String? {
-    if error.domain == kCLErrorDomain && CLError(rawValue: error.code) == .Denied {
+  fileprivate func messageForError(_ error: NSError) -> String? {
+    if error.domain == kCLErrorDomain && CLError.Code(rawValue: error.code) == .denied {
       return "Location service was denied. Please allow location access in settings"
     } else {
       return nil

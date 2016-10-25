@@ -11,7 +11,7 @@ import UIKit
 class FavoritePlacesRouter: BaseRouter {
   weak var delegate: AnyObject!
   weak var viewController: UIViewController!
-  private let wireframe: FavoritePlacesWireframe
+  fileprivate let wireframe: FavoritePlacesWireframe
 
   init(withWireframe wireframe: FavoritePlacesWireframe) {
     self.wireframe = wireframe

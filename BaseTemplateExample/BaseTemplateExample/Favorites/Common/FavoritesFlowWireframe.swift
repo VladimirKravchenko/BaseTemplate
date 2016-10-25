@@ -10,7 +10,7 @@ class FavoritesFlowWireframe {
 
   func favoritePlacesModule() -> FavoritePlacesModule {
     let identifier = FavoritesViewControllersIdentifiers.FavoritePlaces
-    let viewController = storyboard().instantiateViewControllerWithIdentifier(identifier) as! FavoritePlacesViewController
+    let viewController = storyboard().instantiateViewController(withIdentifier: identifier) as! FavoritePlacesViewController
     let presenter = FavoritePlacesPresenter()
     let interactor = FavoritePlacesInteractor()
     let router = FavoritePlacesRouter(withWireframe: FavoritesFlowWireframe())
@@ -18,7 +18,7 @@ class FavoritesFlowWireframe {
                                interactor: interactor, router: router)
   }
 
-  private func storyboard() -> UIStoryboard {
+  fileprivate func storyboard() -> UIStoryboard {
     return UIStoryboard(name: "Favorites", bundle: nil)
   }
 

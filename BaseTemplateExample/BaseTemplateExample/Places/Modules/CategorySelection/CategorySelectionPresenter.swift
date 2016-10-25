@@ -22,7 +22,7 @@ extension CategorySelectionPresenter: CategorySelectionConfigurator {
 
 extension CategorySelectionPresenter: CategorySelectionPresenting {
 
-  func presentCategories(categories: [Category]?) {
+  func presentCategories(_ categories: [Category]?) {
     view.showCategories(categories)
   }
 
@@ -41,7 +41,7 @@ extension CategorySelectionPresenter: CategorySelectionEventHandler {
     interactor.requestCategories()
   }
 
-  func handleCategorySelection(category: Category) {
+  func handleCategorySelection(_ category: Category) {
     delegate?.updateForSelectedCategory(category)
   }
 

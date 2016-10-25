@@ -11,7 +11,7 @@ import UIKit
 class PlaceDetailsRouter: BaseRouter {
   weak var delegate: AnyObject!
   weak var viewController: UIViewController!
-  private let wireframe: PlaceDetailsWireframe
+  fileprivate let wireframe: PlaceDetailsWireframe
 
   init(withWireframe wireframe: PlaceDetailsWireframe) {
     self.wireframe = wireframe

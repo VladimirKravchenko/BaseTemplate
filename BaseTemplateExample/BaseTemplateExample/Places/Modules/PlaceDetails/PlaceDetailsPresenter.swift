@@ -18,7 +18,7 @@ class PlaceDetailsPresenter: BasePresenter {
 
 extension PlaceDetailsPresenter: PlaceDetailsConfigurator {
 
-  func configureWithPlace(place: Place) {
+  func configureWithPlace(_ place: Place) {
     view.showPlace(place)
   }
 

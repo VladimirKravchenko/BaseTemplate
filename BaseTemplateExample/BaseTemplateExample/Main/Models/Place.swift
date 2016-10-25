@@ -17,7 +17,7 @@ class Place: Equatable {
   var lng: Double?
   var phone: String?
   
-  required init?(_ map: Map) {}
+  required init?(map: Map) {}
 }
 
 extension Place: Mappable {

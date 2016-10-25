@@ -13,7 +13,7 @@ protocol CategorySelectionConfigurator: class {
 }
 
 protocol CategorySelectionDelegate: class {
-  func updateForSelectedCategory(category: Category)
+  func updateForSelectedCategory(_ category: Category)
 }
 
 protocol CategorySelectionInteracting: class {
@@ -21,18 +21,18 @@ protocol CategorySelectionInteracting: class {
 }
 
 protocol CategorySelectionPresenting: class {
-  func presentCategories(categories: [Category]?)
+  func presentCategories(_ categories: [Category]?)
   func processCategoriesRequestFail(withErrorMessage message: String?)
 }
 
 protocol CategorySelectionViewing: class {
-  func showCategories(categories: [Category]?)
+  func showCategories(_ categories: [Category]?)
   func hideLoadingIndicators()
 }
 
 protocol CategorySelectionEventHandler: class {
   func handleRefreshEvent()
-  func handleCategorySelection(category: Category)
+  func handleCategorySelection(_ category: Category)
 }
 
 protocol CategorySelectionRouting: class {

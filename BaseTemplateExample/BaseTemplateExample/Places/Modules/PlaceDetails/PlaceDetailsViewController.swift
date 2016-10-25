@@ -26,20 +26,20 @@ class PlaceDetailsViewController: UIViewController, BaseView {
   }
   
   //MARK: Interface
-  private func configureInterface() {
+  fileprivate func configureInterface() {
     configureMapView()
     if let place = place {
       configureInterfaceWithPlace(place)
     }
   }
 
-  private func configureMapView() {
+  fileprivate func configureMapView() {
     mapView.showsScale = true
     mapView.showsUserLocation = true
     mapView.delegate = self
   }
   
-  private func configureInterfaceWithPlace(place: Place) {
+  fileprivate func configureInterfaceWithPlace(_ place: Place) {
     title = place.name
     nameLabel.text = place.name
     countryLabel.text = place.country
@@ -49,7 +49,7 @@ class PlaceDetailsViewController: UIViewController, BaseView {
     showPlaceOnMap(place)
   }
   
-  private func showPlaceOnMap(place: Place) {
+  fileprivate func showPlaceOnMap(_ place: Place) {
     if let latitude = place.lat, let longitude = place.lng {
       let center = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
       let region = MKCoordinateRegionMakeWithDistance(center, 500, 300)
@@ -64,9 +64,9 @@ class PlaceDetailsViewController: UIViewController, BaseView {
 
 extension PlaceDetailsViewController: PlaceDetailsViewing {
 
-  func showPlace(place: Place) {
+  func showPlace(_ place: Place) {
     self.place = place
-    if isViewLoaded() {
+    if isViewLoaded {
       configureInterfaceWithPlace(place)
     }
   }
@@ -74,7 +74,7 @@ extension PlaceDetailsViewController: PlaceDetailsViewing {
 }
 
 extension PlaceDetailsViewController: MKMapViewDelegate {
-  func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+  func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
     return nil
   }
 }

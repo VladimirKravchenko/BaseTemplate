@@ -12,8 +12,8 @@ import CoreLocation
 class PlacesInteractor: BaseInteractor {
   typealias PresenterType = PlacesPresenting
   weak var presenter: PlacesPresenting!
-  private let placesService: PlacesProvider
-  private let locationService: LocationProvider
+  fileprivate let placesService: PlacesProvider
+  fileprivate let locationService: LocationProvider
   var radius: Int = 1500 //meters
 
   init(withPlacesService placesService: PlacesProvider, locationService: LocationProvider) {
@@ -35,7 +35,7 @@ extension PlacesInteractor: PlacesInteracting {
     })
   }
 
-  private func requestPlaces(nearLocation location: CLLocation, forCategory category: Category?,
+  fileprivate func requestPlaces(nearLocation location: CLLocation, forCategory category: Category?,
                            withSearchString searchString: String?) {
     placesService.getPlaces(nearLocation: location, inRadius: radius, forCategory: category,
                             withSearchString: searchString, success: {
@@ -49,14 +49,14 @@ extension PlacesInteractor: PlacesInteracting {
 
 }
 
-typealias PlacesClosure = [Place]? -> Void
+typealias PlacesClosure = ([Place]?) -> Void
 protocol PlacesProvider {
   func getPlaces(nearLocation location: CLLocation, inRadius radius: Int, forCategory category: Category?,
                  withSearchString searchString: String?, success: PlacesClosure?, failure: FailureClosure?)
 }
 
-typealias LocationSuccessClosure = CLLocation -> Void
-typealias LocationFailureClosure = String -> Void
+typealias LocationSuccessClosure = (CLLocation) -> Void
+typealias LocationFailureClosure = (String) -> Void
 protocol LocationProvider {
-  func getLocation(success success: LocationSuccessClosure?, failure: LocationFailureClosure?)
+  func getLocation(success: LocationSuccessClosure?, failure: LocationFailureClosure?)
 }

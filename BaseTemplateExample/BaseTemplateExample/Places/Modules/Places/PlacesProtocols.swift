@@ -20,28 +20,28 @@ protocol PlacesInteracting: class {
 }
 
 protocol PlacesPresenting: class {
-  func presentPlaces(places: [Place]?, forCategory category: Category?, searchString: String?)
+  func presentPlaces(_ places: [Place]?, forCategory category: Category?, searchString: String?)
   func processPlacesRequestFail(withErrorMessage message: String?)
 }
 
 protocol PlacesViewing: class {
-  func showPlaces(places: [Place]?)
-  func showCategoryName(name: String?)
+  func showPlaces(_ places: [Place]?)
+  func showCategoryName(_ name: String?)
   func showLoadingIndicators()
   func hideLoadingIndicators()
 }
 
 protocol PlacesEventHandler: class {
-  func handleSearchForString(string: String)
+  func handleSearchForString(_ string: String)
   func handleRefreshEvent()
   func handleCategorySelection()
-  func handlePlaceSelection(place: Place)
+  func handlePlaceSelection(_ place: Place)
 }
 
 protocol PlacesRouting: class {
   func openCategorySelection()
   func closeCategorySelection()
-  func openDetailsForPlace(place: Place)
+  func openDetailsForPlace(_ place: Place)
   func closePlaceDetails()
 }
 

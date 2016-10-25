@@ -8,6 +8,6 @@ import UIKit
 
 extension UIViewController {
   public class func topViewController() -> UIViewController {
-    return UIApplication.sharedApplication().keyWindow!.rootViewController!
+    return UIApplication.shared.keyWindow!.rootViewController!
   }
 }

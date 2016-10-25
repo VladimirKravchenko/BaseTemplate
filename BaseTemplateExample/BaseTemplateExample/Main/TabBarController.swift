@@ -14,14 +14,14 @@ class TabBarController: UITabBarController {
   }
 
   //MARK: Interface
-  private func configureInterface() {
+  fileprivate func configureInterface() {
     configureTabBar()
     configureTabBarItems()
   }
 
-  private func configureTabBar() {
-    tabBar.translucent = false
-    tabBar.itemPositioning = .Fill
+  fileprivate func configureTabBar() {
+    tabBar.isTranslucent = false
+    tabBar.itemPositioning = .fill
     tabBar.tintColor = UIColor.tintColor()
     tabBar.backgroundColor = UIColor.colorFromHex(0xf7f7f7)
     //no shadow
@@ -29,13 +29,13 @@ class TabBarController: UITabBarController {
     tabBar.backgroundImage = UIImage()
   }
 
-  private func configureTabBarItems() {
+  fileprivate func configureTabBarItems() {
     let normalAttributes = [NSFontAttributeName: UIFont.mediumDisplayFont(withSize: 17),
                             NSForegroundColorAttributeName: UIColor.placeholderTextColor()]
     let selectedAttributes = [NSFontAttributeName: UIFont.mediumDisplayFont(withSize: 17),
                               NSForegroundColorAttributeName: UIColor.textColor()]
-    UITabBarItem.appearance().setTitleTextAttributes(normalAttributes, forState: .Normal)
-    UITabBarItem.appearance().setTitleTextAttributes(selectedAttributes, forState: .Selected)
+    UITabBarItem.appearance().setTitleTextAttributes(normalAttributes, for: UIControlState())
+    UITabBarItem.appearance().setTitleTextAttributes(selectedAttributes, for: .selected)
     UITabBarItem.appearance().titlePositionAdjustment = UIOffset(horizontal: 0, vertical: -10)
   }
 

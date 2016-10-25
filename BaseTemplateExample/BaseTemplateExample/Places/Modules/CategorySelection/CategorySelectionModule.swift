@@ -11,7 +11,7 @@ import UIKit
 
 class CategorySelectionModule: BaseModule {
   let viewController: UIViewController
-  private let configurator: CategorySelectionConfigurator
+  fileprivate let configurator: CategorySelectionConfigurator
 
   required init(withViewController viewController: UIViewController, configurator: CategorySelectionConfigurator) {
     self.viewController = viewController

@@ -19,5 +19,4 @@ class CategorySelectionRouter: BaseRouter {
 }
 
 extension CategorySelectionRouter: CategorySelectionRouting {
-
 }

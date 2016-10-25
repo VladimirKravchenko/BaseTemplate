@@ -7,9 +7,9 @@ import Foundation
 
 //MARK: Aliases
 
-typealias ArrayClosure = [AnyObject]? -> Void
-typealias DictionaryClosure = [String: AnyObject]? -> Void
-typealias StringClosure = String? -> Void
-typealias VoidClosure = Void -> Void
-typealias FailureClosure = String -> Void
+typealias ArrayClosure = ([AnyObject]?) -> Void
+typealias DictionaryClosure = ([String: AnyObject]?) -> Void
+typealias StringClosure = (String?) -> Void
+typealias VoidClosure = (Void) -> Void
+typealias FailureClosure = (String) -> Void
 

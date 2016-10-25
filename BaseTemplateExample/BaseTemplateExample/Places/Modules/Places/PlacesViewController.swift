@@ -26,24 +26,24 @@ class PlacesViewController: UIViewController, BaseView {
   }
 
   //MARK: Interface
-  private func configureInterface() {
+  fileprivate func configureInterface() {
     configureSearchField()
     configureTableView()
     configurePullToRefresh()
   }
 
-  private func configureSearchField() {
+  fileprivate func configureSearchField() {
     searchField.delegate = self
-    searchField.returnKeyType = .Search
+    searchField.returnKeyType = .search
   }
 
-  private func configureTableView() {
+  fileprivate func configureTableView() {
     tableView.dataSource = self
     tableView.delegate = self
   }
 
-  private func configurePullToRefresh() {
-    refreshControl.addTarget(self, action: "refresh", forControlEvents: .ValueChanged)
+  fileprivate func configurePullToRefresh() {
+    refreshControl.addTarget(self, action: #selector(PlacesViewController.refresh), for: .valueChanged)
     tableView.addSubview(refreshControl)
   }
 
@@ -53,17 +53,17 @@ class PlacesViewController: UIViewController, BaseView {
 
   //MARK: IBActions
 
-  @IBAction func cancelButtonPressed(sender: AnyObject) {
+  @IBAction func cancelButtonPressed(_ sender: AnyObject) {
     searchField.text = ""
     searchForString("")
-    cancelButton.hidden = true
+    cancelButton.isHidden = true
   }
 
-  private func searchForString(string: String) {
+  fileprivate func searchForString(_ string: String) {
     eventHandler.handleSearchForString(string)
   }
   
-  @IBAction func categoryButtonPressed(sender: AnyObject) {
+  @IBAction func categoryButtonPressed(_ sender: AnyObject) {
     eventHandler.handleCategorySelection()
   }
   
@@ -71,15 +71,15 @@ class PlacesViewController: UIViewController, BaseView {
 
 extension PlacesViewController: PlacesViewing {
 
-  func showPlaces(places: [Place]?) {
+  func showPlaces(_ places: [Place]?) {
     self.places = places
     refreshControl.endRefreshing()
     tableView?.reloadData()
   }
 
-  func showCategoryName(name: String?) {
+  func showCategoryName(_ name: String?) {
     let title = name ?? "All categories"
-    categoryButton.setTitle(title, forState: .Normal)
+    categoryButton.setTitle(title, for: UIControlState())
   }
 
   func showLoadingIndicators() {
@@ -94,22 +94,22 @@ extension PlacesViewController: PlacesViewing {
 }
 
 extension PlacesViewController: UITableViewDataSource {
-  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
     return places?.count ?? 0
   }
 
-  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier(PlaceCell.id(), forIndexPath: indexPath) as! PlaceCell
-    let place = places![indexPath.row]
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCell(withIdentifier: PlaceCell.id(), for: indexPath) as! PlaceCell
+    let place = places![(indexPath as NSIndexPath).row]
     cell.nameLabel.text = place.name ?? "No name"
-    cell.addressLabel.hidden = place.address == nil
+    cell.addressLabel.isHidden = place.address == nil
     cell.addressLabel.text = place.address
     if let distance = place.distance {
       cell.distanceLabel.text = "\(distance)m"
     } else {
       cell.distanceLabel.text = nil
     }
-    cell.distanceLabel.hidden = place.distance == nil
+    cell.distanceLabel.isHidden = place.distance == nil
     return cell
   }
 
@@ -117,38 +117,38 @@ extension PlacesViewController: UITableViewDataSource {
 
 extension PlacesViewController: UITableViewDelegate {
 
-  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-    let place = places![indexPath.row]
+  func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let place = places![(indexPath as NSIndexPath).row]
     eventHandler.handlePlaceSelection(place)
   }
 
-  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+  func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     return 70
   }
 
-  func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-    return CGFloat.min
+  func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    return CGFloat.leastNormalMagnitude
   }
 
-  func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-    return CGFloat.min
+  func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    return CGFloat.leastNormalMagnitude
   }
 
 }
 
 extension PlacesViewController: UITextFieldDelegate {
 
-  func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange,
+  func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                  replacementString string: String) -> Bool {
-    let resultString: NSString = (textField.text! as NSString).stringByReplacingCharactersInRange(range, withString: string)
-    cancelButton.hidden = resultString.length == 0
+    let resultString: NSString = (textField.text! as NSString).replacingCharacters(in: range, with: string) as NSString
+    cancelButton.isHidden = resultString.length == 0
     if resultString.length == 0 {
       searchForString("")
     }
     return true
   }
 
-  func textFieldShouldReturn(textField: UITextField) -> Bool {
+  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
     textField.endEditing(true)
     if let searchString = textField.text {
       searchForString(searchString)

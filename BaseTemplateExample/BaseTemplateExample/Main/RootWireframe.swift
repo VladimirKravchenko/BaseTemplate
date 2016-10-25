@@ -7,7 +7,7 @@ import Foundation
 import UIKit
 
 class RootWireframe {
-  private lazy var tabBarController: TabBarController = {
+  fileprivate lazy var tabBarController: TabBarController = {
     let tabBarController = TabBarController()
     let placesNavigationController = UINavigationController()
     let placesModule = PlacesFlowWireframe().placesModule(withNavigationController: placesNavigationController,
@@ -23,7 +23,7 @@ class RootWireframe {
     return tabBarController
   }()
 
-  func setupControllerWithWindow(window: UIWindow) {
+  func setupControllerWithWindow(_ window: UIWindow) {
     window.rootViewController = tabBarController
   }
 
